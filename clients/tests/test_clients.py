@@ -436,31 +436,22 @@ class InstallerTests(unittest.TestCase):
         (directory / "verified.json").write_text(json.dumps(manifest))
         return core
 
-    def pin(self, binary, archive=None):
+    def asset_fixture(self, binary, archive=None):
         payload = binary if archive is None else archive
-        pin = {"assetSize": len(payload), "assetSha256": hashlib.sha256(payload).hexdigest(),
-               "binarySha256": hashlib.sha256(binary).hexdigest()}
-        mock = patch.object(core_install, "pinned_asset", return_value=pin)
-        mock.start()
-        self.addCleanup(mock.stop)
+        self.asset_size = len(payload)
 
     def metadata(self, profile="vless", system="windows-amd64", digest=FAKE_HASH):
         release = core_install.RELEASES[profile]
         asset = release["assets"][system]
         return {
             "tag_name": release["tag"], "draft": False, "prerelease": False,
-            "assets": [{"name": asset, "size": 100,
+            "assets": [{"name": asset, "size": getattr(self, "asset_size", 100),
                         "browser_download_url": f"https://github.com/{release['project']}/releases/download/{release['tag']}/{asset}",
                         "digest": f"sha256:{digest}" if digest else None}],
         }
 
-    def test_public_core_manifest_has_pinned_links_without_release_bytes(self):
-        for entry in json.loads((core_install.ROOT / 'vendor/manifest.json').read_text())['cores']:
-            pin = core_install.pinned_asset(entry['profile'], entry['platform'])
-            self.assertEqual(pin['assetSha256'], entry['assetSha256'])
-            self.assertNotIn('path', entry)
-            self.assertNotIn('verifiedManifest', entry)
-        self.assertFalse((core_install.ROOT / 'vendor/cores').exists())
+    def test_public_source_has_no_vendor_catalog(self):
+        self.assertFalse((core_install.ROOT / 'vendor').exists())
 
     def test_tampered_legacy_bundle_blocks_even_explicit_download(self):
         self.local_core('hysteria2').write_bytes(b'tampered')
@@ -627,7 +618,7 @@ class InstallerTests(unittest.TestCase):
     def test_secondary_hy2_online_fetch_records_canonical_hysteria2_cache_and_reuses_it(self):
         binary = b"dummy shared Hysteria executable, never executed"
         digest = hashlib.sha256(binary).hexdigest()
-        self.pin(binary)
+        self.asset_fixture(binary)
         def download(url, destination, limit):
             destination.write_bytes(json.dumps(self.metadata("hysteria2", digest=digest)).encode() if "api.github.com" in url else binary)
         tools = self.directory / "tools"
@@ -724,7 +715,7 @@ class InstallerTests(unittest.TestCase):
     def test_installer_verifies_and_reuses_binary_without_execution(self):
         binary = b"fake hysteria, never execute"
         digest = hashlib.sha256(binary).hexdigest()
-        self.pin(binary)
+        self.asset_fixture(binary)
         def download(url, destination, limit):
             destination.write_bytes(json.dumps(self.metadata("hysteria2", digest=digest)).encode() if "api.github.com" in url else binary)
         tools = self.directory / "tools"
@@ -742,7 +733,7 @@ class InstallerTests(unittest.TestCase):
         bundled = self.local_core("hysteria2")
         binary = b"fresh official release fixture, never executed"
         digest = hashlib.sha256(binary).hexdigest()
-        self.pin(binary)
+        self.asset_fixture(binary)
         def download(url, destination, limit):
             destination.write_bytes(json.dumps(self.metadata("hysteria2", digest=digest)).encode() if "api.github.com" in url else binary)
         tools = self.directory / "tools"
@@ -760,7 +751,7 @@ class InstallerTests(unittest.TestCase):
     def test_online_explicit_digest_without_published_hash(self):
         binary = b"manual trusted fixture, never executed"
         digest = hashlib.sha256(binary).hexdigest()
-        self.pin(binary)
+        self.asset_fixture(binary)
         def download(url, destination, limit):
             destination.write_bytes(json.dumps(self.metadata("hysteria2", digest=None)).encode() if "api.github.com" in url else binary)
         tools = self.directory / "tools"
@@ -776,7 +767,7 @@ class InstallerTests(unittest.TestCase):
             package.writestr("xray.exe", binary)
         archive_bytes = archive.getvalue()
         digest = hashlib.sha256(archive_bytes).hexdigest()
-        self.pin(binary, archive_bytes)
+        self.asset_fixture(binary, archive_bytes)
         def download(url, destination, limit):
             destination.write_bytes(json.dumps(self.metadata(digest=digest)).encode() if "api.github.com" in url else archive_bytes)
         tools = self.directory / "tools"
@@ -844,8 +835,41 @@ class InstallerTests(unittest.TestCase):
                 with self.assertRaisesRegex(ClientError, "checksum"):
                     core_install.resolve_core(profile, None, None, tools)
 
+    def test_online_missing_digest_never_downloads_asset_without_trusted_hash(self):
+        def download(url, destination, limit):
+            self.assertIn("api.github.com", url)
+            destination.write_text(json.dumps(self.metadata("hysteria2", digest=None)))
+        tools = self.directory / "tools"
+        with patch.object(core_install, "platform_id", return_value="windows-amd64"), patch.object(core_install, "download", side_effect=download) as get, self.assertRaisesRegex(ClientError, "no published"):
+            core_install.fetch_core("hysteria2", tools=tools, online=True)
+        self.assertEqual(get.call_count, 1)
+        destination, _ = core_install.install_location("hysteria2", "windows-amd64", tools)
+        self.assertFalse(destination.exists())
+
+    def test_online_exact_upstream_size_is_required_even_with_matching_hash(self):
+        binary = b"synthetic executable, never executed"
+        digest = hashlib.sha256(binary).hexdigest()
+        metadata = self.metadata("hysteria2", digest=digest)
+        metadata["assets"][0]["size"] = len(binary) + 1
+        def download(url, destination, limit):
+            destination.write_bytes(json.dumps(metadata).encode() if "api.github.com" in url else binary)
+        tools = self.directory / "tools"
+        with patch.object(core_install, "platform_id", return_value="windows-amd64"), patch.object(core_install, "download", side_effect=download), self.assertRaisesRegex(ClientError, "checksum"):
+            core_install.fetch_core("hysteria2", tools=tools, online=True)
+        destination, _ = core_install.install_location("hysteria2", "windows-amd64", tools)
+        self.assertFalse(destination.exists())
+
+    def test_online_invalid_existing_cache_never_triggers_download_or_overwrite(self):
+        tools = self.directory / "tools"
+        core = self.local_core("hysteria2", base=tools)
+        core.write_bytes(b"tampered cache")
+        with patch.object(core_install, "platform_id", return_value="windows-amd64"), patch.object(core_install, "download") as get, self.assertRaisesRegex(ClientError, "checksum"):
+            core_install.fetch_core("hysteria2", tools=tools, online=True)
+        get.assert_not_called()
+        self.assertEqual(core.read_bytes(), b"tampered cache")
+
     def test_download_hash_mismatch_never_installs(self):
-        self.pin(b"expected original")
+        self.asset_fixture(b"expected original")
         def download(url, destination, limit):
             destination.write_bytes(json.dumps(self.metadata("hysteria2")).encode() if "api.github.com" in url else b"invalid content")
         tools = self.directory / "tools"

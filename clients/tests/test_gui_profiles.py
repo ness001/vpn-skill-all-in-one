@@ -85,6 +85,15 @@ class GuiProfileTests(unittest.TestCase):
         with self.assertRaises(ClientError):
             self.export('clash-verge-rev')
 
+    def test_export_creates_missing_parent_directories(self):
+        self.write_bundle({'vless': VLESS})
+        path = self.export('v2rayn', 'Downloads/VPN-GUIs/profiles-new')
+        self.assertTrue(path.is_file())
+        self.assertEqual(path.parent, self.root / 'Downloads/VPN-GUIs/profiles-new')
+        if sys.platform != 'win32':
+            self.assertEqual(path.parent.stat().st_mode & 0o777, 0o700)
+            self.assertEqual(path.stat().st_mode & 0o777, 0o600)
+
     def test_empty_and_unknown_gui_rejected(self):
         self.write_bundle({})
         for app in ('unknown', 'v2rayn', 'clash-verge-rev'):

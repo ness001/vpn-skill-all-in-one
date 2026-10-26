@@ -7,9 +7,9 @@ Choose/install a compatible client, import an assigned profile and test the actu
 
 | Device | Official source | Guidance |
 | --- | --- | --- |
-| Windows GUI | Official **v2rayN** or **Clash Verge Rev**: choose Desktop GUI installers in VPN | v2rayN includes .NET; Clash may need the separately linked Microsoft WebView2 installer. Use the package for your CPU/OS. |
-| macOS GUI | Official **v2rayN** or **Clash Verge Rev**: choose Desktop GUI installers in VPN | Intel/Apple Silicon DMGs; minimum OS versions differ. Verify behavior on the intended device. |
-| Linux GUI | `python3 clients/gui.py` for official **v2rayN** or **Clash Verge Rev** | x64 ZIP/DEB; compatible system libraries must already be installed for offline use. |
+| Windows GUI | Official **v2rayN** or **Clash Verge Rev**: choose Desktop GUI installers in VPN | Check upstream .NET/WebView2 requirements. Use the package for your CPU/OS. |
+| macOS GUI | Official **v2rayN** or **Clash Verge Rev**: choose Desktop GUI installers in VPN | Choose the upstream Intel/Apple Silicon package; minimum OS versions differ. Verify behavior on the intended device. |
+| Linux GUI | `python3 clients/gui.py` for official **v2rayN** or **Clash Verge Rev** | Choose an upstream package compatible with your distribution and CPU. |
 | Android | [v2rayNG releases](https://github.com/2dust/v2rayNG/releases) | Choose a build supporting VLESS/WebSocket/TLS. |
 | Android Hysteria2 | [Hiddify releases](https://github.com/hiddify/hiddify-app/releases/latest) | Choose a build supporting your Hysteria2 settings; test actual browsing. |
 | iPhone / iPad | [Hiddify](https://hiddify.com/app/) or [Shadowrocket](https://apps.apple.com/app/shadowrocket/id932747118) | Compatible builds support these protocols; test actual iOS operation. |
@@ -18,25 +18,18 @@ Official compatibility references include the [Hysteria client directory](https:
 
 ## Desktop GUI setup
 
-Run `python3 clients/gui.py` (or choose **Desktop GUI installers** in a private launcher) to list official pinned installer links. This default does not download or export credentials. After authorizing the selected download, use:
+Run `python3 clients/gui.py` (or choose **Desktop GUI installers** in a private launcher) to show official [v2rayN releases](https://github.com/2dust/v2rayN/releases) and [Clash Verge Rev releases](https://github.com/clash-verge-rev/clash-verge-rev/releases). The helper does not download packages or read credentials by default.
+
+Install the upstream package for your operating system/CPU manually, following its current requirements and integrity guidance. Keep normal OS security checks enabled. Windows builds may require [.NET](https://dotnet.microsoft.com/download) or [Microsoft WebView2](https://developer.microsoft.com/microsoft-edge/webview2/); Linux builds require compatible distribution libraries. Check upstream release notes for minimum macOS versions and architecture support.
+
+For an installed client, explicitly export imports from your private bundle:
 
 ```bash
-python3 clients/gui.py --app v2rayn --download --export-profiles
-python3 clients/gui.py --app clash-verge-rev --download --export-profiles
+python3 clients/gui.py --app v2rayn --profiles-file /absolute/private/profiles.json --export-profiles
+python3 clients/gui.py --app clash-verge-rev --profiles-file /absolute/private/profiles.json --export-profiles
 ```
 
-Supply your private bundle using `--profiles-file PATH` or `VPN_PROFILES_FILE`. The explicit download verifies the full package size/SHA-256 and prepares imports; output defaults to `~/Downloads/VPN-GUIs/`, outside Git. Existing files are verified, never overwritten. Python 3.11+ is required for preparation, not for the installed GUI. Nothing runs installers, elevates privileges or changes system settings. Use only your OS/CPU package. The repository contains links and notices, not third-party release bytes.
-
-### Pinned versions and platforms
-
-| Client | Version | Windows | macOS | Linux |
-| --- | --- | --- | --- | --- |
-| v2rayN | 7.24.9 | x64 portable ZIP; .NET runtime included | Intel and Apple Silicon DMG; macOS13.6+ | x64 portable ZIP; compatible modern desktop libraries required |
-| Clash Verge Rev | v2.5.2 | x64 installer plus Microsoft-direct offline WebView2 companion | Intel and Apple Silicon DMG; macOS12+ guidance | x64 Debian/Ubuntu `.deb`; system GTK/WebKit dependencies required |
-
-**Linux is not universally dependency-free.** The packages include application/core binaries, not every distribution's native libraries. v2rayN was built on Ubuntu24.04; Clash requires compatible WebKitGTK4.1/GTK3/OpenSSL/Ayatana libraries already installed for a fully offline install. No Linux ARM package is currently listed.
-
-For Clash on Windows, install **Microsoft WebView2 Evergreen Standalone x64 153.0.4234.48** first if missing, then Clash. Its companion URL points directly to Microsoft; download validation checks the reviewed size/hash, not a fresh Authenticode signature. Microsoft's separate license/notice references remain in `vendor/gui/licenses/`. Keep normal OS security checks enabled. No installer is executed automatically.
+Exports go to a fresh directory under `~/Downloads/VPN-GUIs/`, outside Git; `--output-dir PATH` selects another private parent. `--open-folder` opens only that exported folder when requested. Python 3.11+ is required for export, not for the installed GUI. No installer/client is launched and no system proxy/routing setting is changed. Versions, package hashes and third-party licenses remain upstream rather than in this repository.
 
 ### Import the prepared connections
 
@@ -47,7 +40,7 @@ Keep Clash in **Rule** mode for this repository’s [China GeoIP bypass policy](
 
 The generated files contain credentials. Keep them private and outside Git. Exporting them copies existing credentials; it does not provision another user.
 
-A hash-verified download is not proof of GUI operation on a particular device. Verify installation, authenticated forwarding and the intended applications on your own platform.
+A download or profile export is not proof of GUI operation on a particular device. Verify installation, authenticated forwarding and the intended applications on your own platform.
 
 ### Enable TUN in Clash Verge Rev
 

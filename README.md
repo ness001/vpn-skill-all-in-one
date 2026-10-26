@@ -65,7 +65,7 @@ Currently supports:
 
 ### [`vpn-vendor-update`](skills/vpn-vendor-update/SKILL.md)
 
-Maintain pinned official release links, integrity metadata and source/license references.
+Maintain official acquisition links and client compatibility instructions.
 
 Currently supports:
 
@@ -121,5 +121,5 @@ Choose your agent and the VPN skills in the installer. Python helpers require Py
 - [Client operations](docs/CLIENTS.md) · [Device setup](docs/DEVICES.md)
 - [VPN concepts](docs/CONCEPTS.md) · [Troubleshooting](docs/TROUBLESHOOTING.md)
 - [Profile format](profiles/README.md) · [Configuration examples](examples/README.md)
-- [Core release links](vendor/README.md) · [GUI packages and licenses](vendor/gui/README.md)
+- [Official client acquisition](skills/vpn-client-setup/SKILL.md) · [Software-link maintenance](skills/vpn-vendor-update/SKILL.md)
 - [Development and testing](docs/DEVELOPMENT.md)

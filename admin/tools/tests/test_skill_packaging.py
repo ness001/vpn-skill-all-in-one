@@ -144,7 +144,7 @@ class RootResolutionTests(unittest.TestCase):
     def test_missing_asset_fails_without_opening_any_asset(self):
         with patch.object(Path, "read_text", side_effect=AssertionError("No content reads")):
             self.assertEqual(skill_root.resolve_root(str(self.checkout)), self.checkout)
-            (self.checkout / "vendor/manifest.json").unlink()
+            (self.checkout / "clients/vpn.py").unlink()
             with self.assertRaisesRegex(ValueError, "Incomplete helper checkout"):
                 skill_root.resolve_root(str(self.checkout))
 
