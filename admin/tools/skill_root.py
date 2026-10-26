@@ -7,7 +7,7 @@ from pathlib import Path
 REQUIRED = (
     "admin/tools/skill_root.py", "plugin.json", "clients/vpn.py", "admin/install-server.sh",
     "admin/tools/speed_test.py", "admin/tools/guest_diagnostics.sh",
-    "docs/CLIENTS.md", "infra/vpn/main.bicep", "vendor/manifest.json",
+    "docs/CLIENTS.md", "infra/vpn/main.bicep",
 )
 SOURCE_URL = "https://github.com/ness001/vpn-skill-all-in-one.git"
 

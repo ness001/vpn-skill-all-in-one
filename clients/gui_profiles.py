@@ -67,6 +67,7 @@ def export_gui_profiles(app_id: str, directory: Path, profiles_file: Path | None
         # JSON is valid YAML; the .yaml extension is convenient for GUI local import.
         data = (json.dumps(clash_config(profiles), indent=2) + "\n").encode()
         filename = "VPN-Clash.yaml"
+    destination.parent.mkdir(mode=0o700, parents=True, exist_ok=True)
     ensure_private_export_parent(destination)
     output = destination / filename
     if output.exists() or output.is_symlink():

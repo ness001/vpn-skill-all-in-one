@@ -106,7 +106,7 @@ def release_digest(metadata: dict, profile: str, asset_name: str, explicit: str 
     expected_url = f"https://github.com/{release['project']}/releases/download/{release['tag']}/{asset_name}"
     if asset.get("browser_download_url") != expected_url:
         raise ClientError("Unexpected official release asset URL.")
-    if not isinstance(asset.get("size"), int) or not 0 < asset["size"] <= MAX_DOWNLOAD:
+    if type(asset.get("size")) is not int or not 0 < asset["size"] <= MAX_DOWNLOAD:
         raise ClientError("Official release asset size is invalid.")
     published = asset.get("digest") or ""
     published_hash = valid_sha256(published[7:]) if published.startswith("sha256:") else None
@@ -154,27 +154,6 @@ def install_location(profile: str, system: str, tools: Path = TOOLS) -> tuple[Pa
     return directory, release["name"] + suffix
 
 
-def pinned_asset(profile: str, system: str) -> dict:
-    try:
-        manifest = json.loads(limited_read(ROOT / "vendor" / "manifest.json", 1024 * 1024))
-        entries = [item for item in manifest["cores"]
-                   if item.get("profile") == profile and item.get("platform") == system]
-        if len(entries) != 1:
-            raise ValueError
-        entry = entries[0]
-        release = RELEASES[profile]
-        expected_url = f"https://github.com/{release['project']}/releases/download/{release['tag']}/{release['assets'][system]}"
-        if (entry.get("project") != release["project"] or entry.get("tag") != release["tag"]
-                or entry.get("asset") != release["assets"][system] or entry.get("assetUrl") != expected_url
-                or type(entry.get("assetSize")) is not int or not 0 < entry["assetSize"] <= MAX_DOWNLOAD):
-            raise ValueError
-        valid_sha256(entry["assetSha256"])
-        valid_sha256(entry["binarySha256"])
-        return entry
-    except (OSError, ValueError, KeyError, TypeError):
-        raise ClientError("Pinned core link metadata is invalid; restore trusted source metadata.") from None
-
-
 def fetch_core(profile: str, explicit_hash: str | None = None, tools: Path = TOOLS, *, online: bool = False) -> Path:
     system = platform_id()
     profile = core_profile(profile)
@@ -197,21 +176,17 @@ def fetch_core(profile: str, explicit_hash: str | None = None, tools: Path = TOO
     bundled_directory, bundled_name = install_location(profile, system, BUNDLED)
     if bundled_directory.exists() or bundled_directory.is_symlink():
         verify_local_core(profile, system, bundled_directory, bundled_name, bundled=True)
-    pin = pinned_asset(profile, system)
-    if explicit_hash and not hmac.compare_digest(valid_sha256(explicit_hash), pin["assetSha256"]):
-        raise ClientError("Provided checksum disagrees with the pinned release-asset SHA-256 digest.")
     destination.parent.mkdir(parents=True, exist_ok=True)
     with private_directory(destination.parent) as work:
         metadata_path = work / "release.json"
         api_url = f"https://api.github.com/repos/{release['project']}/releases/tags/{urllib.parse.quote(release['tag'], safe='')}"
         download(api_url, metadata_path, 2 * 1024 * 1024)
         metadata = json.loads(limited_read(metadata_path, 2 * 1024 * 1024))
-        url, digest = release_digest(metadata, profile, asset_name, explicit_hash or pin["assetSha256"])
-        if not hmac.compare_digest(digest, pin["assetSha256"]):
-            raise ClientError("Official release digest disagrees with the pinned checksum.")
+        url, digest = release_digest(metadata, profile, asset_name, explicit_hash)
+        size = next(item["size"] for item in metadata["assets"] if item["name"] == asset_name)
         archive = work / "download"
-        download(url, archive, pin["assetSize"])
-        if archive.stat().st_size != pin["assetSize"] or not hmac.compare_digest(sha256_file(archive), digest):
+        download(url, archive, size)
+        if archive.stat().st_size != size or not hmac.compare_digest(sha256_file(archive), digest):
             raise ClientError("Release checksum verification failed; nothing was installed or executed.")
         core = work / binary_name
         if asset_name.endswith(".zip"):
@@ -219,8 +194,6 @@ def fetch_core(profile: str, explicit_hash: str | None = None, tools: Path = TOO
             archive.unlink()
         else:
             archive.rename(core)
-        if not hmac.compare_digest(sha256_file(core), pin["binarySha256"]):
-            raise ClientError("Core executable disagrees with the pinned checksum; nothing installed.")
         if os.name != "nt":
             core.chmod(0o700)
         manifest = {

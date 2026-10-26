@@ -6,4 +6,4 @@ These placeholders explain native core formats; they are **not working connectio
 - `hysteria2-client.example.json`: Hysteria2 with verified TLS and the same local ports.
 - `http-proxy.pac`: optional browser PAC for an already-running local HTTP proxy; localhost is direct and public requests have no direct fallback.
 
-Never replace tracked examples with credentials or overwrite live server files with placeholders. Keep private profiles and exports outside public Git repositories. Bundled software and notices are under [vendor/](../vendor/README.md).
+Never replace tracked examples with credentials or overwrite live server files with placeholders. Keep private profiles and exports outside public Git repositories. Official acquisition links are in [client setup](../skills/vpn-client-setup/SKILL.md).

@@ -33,7 +33,7 @@ iphone-hysteria2*
 
 # Downloaded tools and generated execution artifacts.
 *.exe
-vendor/cores/
+vendor/
 *.part[0-9][0-9][0-9]
 *.dmg
 *.deb
