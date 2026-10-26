@@ -1,7 +1,7 @@
 {
   "name": "vpn-skill",
   "owner": { "name": "ness001" },
-  "description": "VPN Skill repository-source marketplace for six self-hosted VPN skills.",
+  "description": "VPN Skill repository-source marketplace for five self-hosted VPN skills.",
   "plugins": [
     {
       "name": "vpn-skill",

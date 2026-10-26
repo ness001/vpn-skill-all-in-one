@@ -3,7 +3,7 @@
 The [README](../README.md#installation) lists the normal per-agent commands. Choose one installation method per agent to avoid duplicate skills, then start a fresh session or reload skills as required by that agent.
 ## First use
 
-There is no separate setup skill and no required environment variable. Each of the six skills checks for complete helpers in an explicitly supplied checkout, its full plugin installation, nearby source checkouts (including a parent repository's `toolkit/`), then the shared user cache.
+There is no separate setup skill and no required environment variable. Each of the five skills checks for complete helpers in an explicitly supplied checkout, its full plugin installation, nearby source checkouts (including a parent repository's `toolkit/`), then the shared user cache.
 
 A copied skill-only installation, such as Gemini or the skills CLI, can prepare the missing source with existing Git:
 
@@ -11,7 +11,7 @@ A copied skill-only installation, such as Gemini or the skills CLI, can prepare 
 git clone --depth 1 https://github.com/ness001/vpn-skill-all-in-one.git "$HOME/.cache/vpn-skill/source"
 ```
 
-The agent performs this preparation when needed, explaining the lightweight source checkout (release artifacts are linked, not included) and using the host's normal permission flow. All six skills reuse that one source. On Windows the same location is `$HOME\.cache\vpn-skill\source`. An existing incomplete destination is a blocker, not something to delete or overwrite. Git and Python are not silently installed.
+The agent performs this preparation when needed, explaining the lightweight source checkout (release artifacts are linked, not included) and using the host's normal permission flow. All five skills reuse that one source. On Windows the same location is `$HOME\.cache\vpn-skill\source`. An existing incomplete destination is a blocker, not something to delete or overwrite. Git and Python are not silently installed.
 Full plugins already containing the helpers need no second download. Optional `VPN_SKILL_ROOT` is an absolute override for an existing full checkout, not an installation requirement; no shell-profile changes are needed. A bad override fails clearly instead of selecting unrelated code. The shared resolver validates filenames without reading profiles or executing vendor software:
 
 ```bash
@@ -43,8 +43,6 @@ Quote actual paths containing spaces. For VS Code with agent-plugin support, use
 ## Updates and editable source
 
 Use your agent's plugin update command; for skill-only installs repeat the selected Gemini install command or use `npx skills@latest update`. Refresh a separate helper clone deliberately with `git -C /absolute/path/to/source pull --ff-only` after reviewing local changes; skills do not silently update source or reset working trees. Copied skills and helper source should come from the same reviewed revision.
-
-Vendor maintenance modifies source artifacts and must use an editable Git checkout, not an installed plugin/cache snapshot. The shared `~/.cache/vpn-skill/source` clone is editable source. Pass its path explicitly when necessary and validate it with `skill_root.py --root /absolute/path/to/source --editable`. Candidate link metadata remains separate until reviewed integration.
 
 Private profiles and exports stay outside Git/source/plugin directories. Core runtime preparation uses `~/.cache/vpn-skill/runtime/.tools`; default optional diagnostic and speed result paths are under `~/.cache/vpn-skill/runtime/.local/`. Skills explicitly pass the private profile path. Connection and provisioning workflows run when you invoke the corresponding skill.
 

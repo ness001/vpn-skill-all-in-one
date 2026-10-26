@@ -1,6 +1,6 @@
 # VPN Skill All in One
 
-An extensible collection of agent skills for VPN infrastructure, server and client setup, diagnosis, speed testing and software maintenance. Add support for new cloud providers, protocols and clients as the project grows.
+An extensible collection of agent skills for VPN infrastructure, server and client setup, diagnosis and speed testing. Add support for new cloud providers, protocols and clients as the project grows.
 
 ## Quick start
 
@@ -14,6 +14,14 @@ An extensible collection of agent skills for VPN infrastructure, server and clie
 Use the skill name shown by your agent; Claude plugin names include the `vpn-skill:` prefix. The agent checks prerequisites and gathers the settings for your request. Provide connection files by local path rather than pasting credentials into chat.
 
 ## Skills
+
+| Skill | Features |
+| --- | --- |
+| [`vpn-infra-setup`](skills/vpn-infra-setup/SKILL.md) | Provision cloud infrastructure; currently supports Azure. |
+| [`vpn-server-setup`](skills/vpn-server-setup/SKILL.md) | Install VLESS or Hysteria2 on a fresh Ubuntu server. |
+| [`vpn-client-setup`](skills/vpn-client-setup/SKILL.md) | Configure clients, import connection files and validate forwarding. |
+| [`vpn-diagnose`](skills/vpn-diagnose/SKILL.md) | Inspect services, ports, resources and supported logs locally or through Azure. |
+| [`vpn-speed`](skills/vpn-speed/SKILL.md) | Measure throughput with fixed-file downloads or Fast.com. |
 
 ### [`vpn-infra-setup`](skills/vpn-infra-setup/SKILL.md)
 
@@ -63,17 +71,6 @@ Currently supports:
 - Fixed-file download
 - Fast.com
 
-### [`vpn-vendor-update`](skills/vpn-vendor-update/SKILL.md)
-
-Maintain official acquisition links and client compatibility instructions.
-
-Currently supports:
-
-- Xray
-- Hysteria2
-- v2rayN
-- Clash Verge Rev
-
 ## Installation
 
 Install for your agent, then invoke a skill. Skills reuse available helpers or prepare one shared checkout on first use. [Local installs, updates and requirements](docs/INSTALLATION.md).
@@ -121,5 +118,5 @@ Choose your agent and the VPN skills in the installer. Python helpers require Py
 - [Client operations](docs/CLIENTS.md) · [Device setup](docs/DEVICES.md)
 - [VPN concepts](docs/CONCEPTS.md) · [Troubleshooting](docs/TROUBLESHOOTING.md)
 - [Profile format](profiles/README.md) · [Configuration examples](examples/README.md)
-- [Official client acquisition](skills/vpn-client-setup/SKILL.md) · [Software-link maintenance](skills/vpn-vendor-update/SKILL.md)
+- [Official client acquisition](skills/vpn-client-setup/SKILL.md)
 - [Development and testing](docs/DEVELOPMENT.md)
