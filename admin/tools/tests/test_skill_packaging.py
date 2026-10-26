@@ -17,7 +17,7 @@ skill_root = importlib.util.module_from_spec(SPEC)
 SPEC.loader.exec_module(skill_root)
 SKILLS = {
     "vpn-client-setup", "vpn-server-setup", "vpn-infra-setup",
-    "vpn-diagnose", "vpn-speed", "vpn-vendor-update",
+    "vpn-diagnose", "vpn-speed",
 }
 
 
@@ -74,7 +74,7 @@ class PackagingTests(unittest.TestCase):
                 self.assertIn("No manual helper installation or environment variable is required", readiness)
                 self.assertIn("quoted absolute path", readiness)
                 self.assertIn("respect denials", readiness)
-                self.assertIn("never an installed plugin/cache", readiness)
+                self.assertNotIn("vendor maintenance", readiness)
         sections = [p.read_text().split("## Prepare helpers on first use\n\n", 1)[1].split("Full installation, local-source and update details are at `<root>/docs/INSTALLATION.md`.", 1)[0]
                     for p in paths]
         self.assertTrue(all(section == sections[0] for section in sections))

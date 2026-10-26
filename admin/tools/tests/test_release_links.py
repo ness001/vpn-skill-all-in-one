@@ -11,13 +11,12 @@ class ReleaseLinkTests(unittest.TestCase):
         for name in ('vendor_refresh.py', 'gui_refresh.py', 'gui_source_bundle.py', 'gui-selection.json'):
             self.assertFalse((ROOT / 'admin/tools' / name).exists())
 
-    def test_client_and_maintenance_skills_link_to_official_releases(self):
-        for name in ('vpn-client-setup', 'vpn-vendor-update'):
-            text = (ROOT / 'skills' / name / 'SKILL.md').read_text()
-            for project in ('XTLS/Xray-core', 'HyNetworks/hysteria', '2dust/v2rayN', 'clash-verge-rev/clash-verge-rev'):
-                self.assertIn(f'https://github.com/{project}/releases', text)
-            self.assertNotIn('vendor/manifest.json', text)
-            self.assertNotIn('gui_refresh.py', text)
+    def test_client_skill_links_to_official_releases(self):
+        text = (ROOT / 'skills/vpn-client-setup/SKILL.md').read_text()
+        for project in ('XTLS/Xray-core', 'HyNetworks/hysteria', '2dust/v2rayN', 'clash-verge-rev/clash-verge-rev'):
+            self.assertIn(f'https://github.com/{project}/releases', text)
+        self.assertNotIn('vendor/manifest.json', text)
+        self.assertNotIn('gui_refresh.py', text)
 
 
 if __name__ == '__main__':
