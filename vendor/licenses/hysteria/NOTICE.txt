@@ -1,0 +1,9 @@
+HyNetworks/hysteria app/v2.12.3
+License: MIT; the unmodified upstream license is in LICENSE.
+The linked executables are unmodified official upstream release binaries; no executable bytes are distributed here.
+Release: https://github.com/HyNetworks/hysteria/releases/tag/app/v2.12.3
+Exact tagged source code: https://github.com/HyNetworks/hysteria/tree/app/v2.12.3
+Source archive (available without charge): https://github.com/HyNetworks/hysteria/archive/refs/tags/app/v2.12.3.tar.gz
+The original source and applicable notices remain available at the exact tag above.
+This link inventory does not restrict recipients' rights under the upstream license.
+No warranty or endorsement by the upstream authors is provided by this link inventory.

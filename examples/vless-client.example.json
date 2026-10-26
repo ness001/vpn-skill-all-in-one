@@ -1,0 +1,23 @@
+{
+  "log": { "loglevel": "warning" },
+  "inbounds": [
+    { "listen": "127.0.0.1", "port": 10808, "protocol": "socks", "settings": { "auth": "noauth", "udp": true } },
+    { "listen": "127.0.0.1", "port": 10809, "protocol": "http", "settings": {} }
+  ],
+  "outbounds": [
+    {
+      "protocol": "vless",
+      "settings": {
+        "vnext": [
+          { "address": "vpn.example.invalid", "port": 443, "users": [ { "id": "REPLACE_WITH_PRIVATE_DEVICE_UUID", "encryption": "none" } ] }
+        ]
+      },
+      "streamSettings": {
+        "network": "ws",
+        "security": "tls",
+        "tlsSettings": { "serverName": "vpn.example.invalid", "allowInsecure": false },
+        "wsSettings": { "path": "/REPLACE_WITH_WEBSOCKET_PATH", "headers": { "Host": "vpn.example.invalid" } }
+      }
+    }
+  ]
+}

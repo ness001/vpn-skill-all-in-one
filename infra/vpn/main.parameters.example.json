@@ -1,0 +1,13 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "location": { "value": "REPLACE_WITH_APPROVED_AZURE_REGION" },
+    "vmSize": { "value": "Standard_B1ms" },
+    "resourcePrefix": { "value": "vpn-example" },
+    "profile": { "value": "vless" },
+    "imageVersion": { "value": "24.04.202609040" },
+    "dnsLabel": { "value": "vpn-example-unique" },
+    "sshPublicKey": { "value": "REPLACE_WITH_YOUR_SSH_PUBLIC_KEY_NOT_A_PRIVATE_KEY" }
+  }
+}

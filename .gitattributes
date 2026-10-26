@@ -1,0 +1,16 @@
+* text=auto eol=lf
+*.sh text eol=lf
+*.py text eol=lf
+*.go text eol=lf
+*.ps1 text eol=lf
+*.json text eol=lf
+*.md text eol=lf
+*.txt text eol=lf
+vendor/cores/**/xray -text
+vendor/cores/**/xray.exe -text
+vendor/cores/**/hysteria -text
+vendor/cores/**/hysteria.exe -text
+vendor/licenses/** -text
+vendor/gui/**/*.part* -text
+vendor/gui/licenses/** -text
+vendor/gui/sources/*.source.tar.gz -text

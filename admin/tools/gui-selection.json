@@ -1,0 +1,30 @@
+{
+  "apps": [
+    {
+      "id": "v2rayn",
+      "name": "v2rayN",
+      "project": "2dust/v2rayN",
+      "version": "7.24.9",
+      "license": "GPL-3.0 and bundled component licenses",
+      "packages": [
+        {"platform": "windows-amd64", "asset": "v2rayN-windows-64.zip", "requirements": ["Windows 10/11 x64", "Extract the complete archive; self-contained .NET runtime and cores included."]},
+        {"platform": "darwin-amd64", "asset": "v2rayN-macos-64.dmg", "requirements": ["macOS 13.6+ Intel", "Observe normal macOS application security requirements; no policy bypass."]},
+        {"platform": "darwin-arm64", "asset": "v2rayN-macos-arm64.dmg", "requirements": ["macOS 13.6+ Apple Silicon", "Observe normal macOS application security requirements; no policy bypass."]},
+        {"platform": "linux-amd64", "asset": "v2rayN-linux-64.zip", "requirements": ["Linux x64 with compatible modern desktop libraries; built for Ubuntu 24.04", "Self-contained .NET does not bundle all native graphics/font libraries."]}
+      ]
+    },
+    {
+      "id": "clash-verge-rev",
+      "name": "Clash Verge Rev",
+      "project": "clash-verge-rev/clash-verge-rev",
+      "version": "v2.5.2",
+      "license": "GPL-3.0 and bundled component licenses; separate Microsoft WebView2 terms",
+      "packages": [
+        {"platform": "windows-amd64", "asset": "Clash.Verge_2.5.2_x64-setup.exe", "requirements": ["Windows x64", "Download/install the linked official Microsoft WebView2 companion first if the runtime is missing, then install Clash Verge Rev."], "companions": [{"filename": "MicrosoftEdgeWebView2RuntimeInstallerX64.exe", "sourceUrl": "https://msedge.sf.dl.delivery.mp.microsoft.com/filestreamingservice/files/913236b0-52e1-4dde-943c-2cfdbe153d31/MicrosoftEdgeWebView2RuntimeInstallerX64.exe", "sha256": "ad9b350625e132481bc0953eee9e032810134df9fedbd7be364c3f4e0e4dbd64", "size": 213053648, "installOrder": 1, "description": "Microsoft WebView2 offline runtime: install first if missing."}]},
+        {"platform": "darwin-amd64", "asset": "Clash.Verge_2.5.2_x64.dmg", "requirements": ["macOS 12+ Intel", "Observe normal macOS application security requirements."]},
+        {"platform": "darwin-arm64", "asset": "Clash.Verge_2.5.2_aarch64.dmg", "requirements": ["macOS 12+ Apple Silicon", "Observe normal macOS application security requirements."]},
+        {"platform": "linux-amd64", "asset": "Clash.Verge_2.5.2_amd64.deb", "requirements": ["Compatible Debian/Ubuntu x64 desktop", "Requires installed WebKitGTK 4.1, GTK3, OpenSSL and Ayatana AppIndicator libraries; distribution dependencies are not bundled."]}
+      ]
+    }
+  ]
+}

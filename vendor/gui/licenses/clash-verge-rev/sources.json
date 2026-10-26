@@ -1,0 +1,129 @@
+{
+  "schemaVersion": 1,
+  "checkedAt": "2026-09-19",
+  "application": "Clash Verge Rev",
+  "release": "v2.5.2",
+  "releaseUrl": "https://github.com/clash-verge-rev/clash-verge-rev/releases/tag/v2.5.2",
+  "sourceAccessMethod": "Pinned official upstream source links only; no local object-code packages or source mirrors. Redistribution by recipients remains subject to applicable source-access obligations.",
+  "localSourceManifest": "../../sources/manifest.json",
+  "completeDependencyClosureVerified": false,
+  "upstreamInstallersExecuted": false,
+  "components": [
+    {
+      "name": "Clash Verge Rev",
+      "version": "v2.5.2",
+      "project": "clash-verge-rev/clash-verge-rev",
+      "commit": "28f2efc504059b1dc75c793618b775c8e1b2a5f1",
+      "license": "GPL-3.0-only",
+      "licenseDeclaration": "src-tauri/Cargo.toml",
+      "licenseFile": "LICENSE.gui.txt",
+      "licenseSha256": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986",
+      "sourceUrl": "https://github.com/clash-verge-rev/clash-verge-rev/tree/28f2efc504059b1dc75c793618b775c8e1b2a5f1",
+      "sourceArchiveUrl": "https://github.com/clash-verge-rev/clash-verge-rev/archive/28f2efc504059b1dc75c793618b775c8e1b2a5f1.tar.gz",
+      "buildReferences": [
+        "Cargo.lock",
+        "pnpm-lock.yaml",
+        "scripts/prebuild.mjs",
+        ".github/workflows/release.yml"
+      ]
+    },
+    {
+      "name": "Mihomo stable and alpha cores",
+      "versions": [
+        "v1.19.29",
+        "alpha-e26714a"
+      ],
+      "project": "MetaCubeX/mihomo",
+      "commit": "e26714a181ac0e2fa803453c0a8e9a9ce94e31cb",
+      "licenseDescription": "GNU General Public License version 3 in the pinned commit; do not substitute current default-branch metadata",
+      "licenseFile": "LICENSE.mihomo.txt",
+      "licenseSha256": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986",
+      "sourceUrl": "https://github.com/MetaCubeX/mihomo/tree/e26714a181ac0e2fa803453c0a8e9a9ce94e31cb",
+      "sourceArchiveUrl": "https://github.com/MetaCubeX/mihomo/archive/e26714a181ac0e2fa803453c0a8e9a9ce94e31cb.tar.gz",
+      "buildReferences": [
+        "go.mod",
+        "go.sum",
+        ".github/workflows",
+        "Makefile"
+      ]
+    },
+    {
+      "name": "Clash Verge service IPC",
+      "version": "v2.3.3",
+      "project": "clash-verge-rev/clash-verge-service-ipc",
+      "commit": "b964ed2992599fadefd589425c1acdabcb875623",
+      "licenseDescription": "GNU General Public License version 3; tagged Cargo.toml declares GPL-3.0",
+      "licenseFile": "LICENSE.service.txt",
+      "licenseSha256": "8b1ba204bb69a0ade2bfcf65ef294a920f6bb361b317dba43c7ef29d96332b9b",
+      "sourceUrl": "https://github.com/clash-verge-rev/clash-verge-service-ipc/tree/b964ed2992599fadefd589425c1acdabcb875623",
+      "sourceArchiveUrl": "https://github.com/clash-verge-rev/clash-verge-service-ipc/archive/b964ed2992599fadefd589425c1acdabcb875623.tar.gz",
+      "buildReferences": [
+        "Cargo.lock",
+        "Cargo.toml",
+        ".github/workflows",
+        "Makefile"
+      ]
+    }
+  ],
+  "buildEvidence": {
+    "runUrl": "https://github.com/clash-verge-rev/clash-verge-rev/actions/runs/29694732811",
+    "jobs": [
+      {
+        "platform": "windows-x64-regular-installer",
+        "jobId": 88213456261
+      },
+      {
+        "platform": "macos-arm64",
+        "jobId": 88213456267
+      },
+      {
+        "platform": "macos-x64",
+        "jobId": 88213456276
+      },
+      {
+        "platform": "linux-x64",
+        "jobId": 88213456296
+      }
+    ],
+    "observedInEverySelectedJob": {
+      "stable": "Latest release version: v1.19.29",
+      "alpha": "Latest alpha version: alpha-e26714a",
+      "service": "Latest service version: v2.3.3"
+    }
+  },
+  "otherBundledComponents": [
+    {
+      "name": "Microsoft WebView2 Evergreen Standalone Runtime companion",
+      "version": "153.0.4234.48",
+      "architecture": "x64",
+      "filename": "MicrosoftEdgeWebView2RuntimeInstallerX64.exe",
+      "licenseDescription": "Separate Microsoft proprietary runtime terms; not covered by GPL; supplied only as the application's prerequisite companion",
+      "noticeFile": "NOTICE.WebView2.txt",
+      "licenseFile": "LICENSE.WebView2.txt",
+      "licenseSha256": "10f1778e10515abefbe25480bd21b2d73d75a82cc4b4460d3efa0adb1399b02e",
+      "verbatimHtmlValueFile": "LICENSE.WebView2.html.txt",
+      "verbatimHtmlValueSha256": "ce6fa83e57c338256e5cabe9e1eea83076c271b0fdb253408213eeb08859d7b6",
+      "currentOfficialTermsUrl": "https://developer.microsoft.com/microsoft-edge/api/eula/webview2",
+      "termsRetrievedAt": "2026-09-19",
+      "sourceUrl": "https://msedge.sf.dl.delivery.mp.microsoft.com/filestreamingservice/files/913236b0-52e1-4dde-943c-2cfdbe153d31/MicrosoftEdgeWebView2RuntimeInstallerX64.exe",
+      "expectedSize": 213053648,
+      "expectedSha256": "ad9b350625e132481bc0953eee9e032810134df9fedbd7be364c3f4e0e4dbd64",
+      "checksumReference": "https://github.com/microsoft/winget-pkgs/blob/master/manifests/m/Microsoft/EdgeWebView2Runtime/153.0.4234.48/Microsoft.EdgeWebView2Runtime.installer.yaml",
+      "requiredAuthenticodePublisher": "Microsoft Corporation",
+      "directMicrosoftAcquisitionVerified": true,
+      "acquiredPackageSha256Verified": true,
+      "authenticodeStatus": "Valid",
+      "authenticodePublisher": "Microsoft Corporation",
+      "verificationDate": "2026-09-19",
+      "verificationRecord": "Maintainer acquisition verification: direct Microsoft download, published SHA256 matched, Authenticode Valid with Microsoft Corporation signer. Package URL/size/hash/parts also recorded in ../../manifest.json. Neither installer was executed.",
+      "thirdPartySourceUrl": "https://thirdpartysource.microsoft.com"
+    },
+    {
+      "name": "country.mmdb, geosite.dat, geoip.dat",
+      "project": "MetaCubeX/meta-rules-dat",
+      "sourceUrl": "https://github.com/MetaCubeX/meta-rules-dat",
+      "exactBundledSnapshotVerified": false,
+      "note": "Build logs download mutable latest assets; preserve packaged notices and upstream dataset-specific source/license references."
+    }
+  ]
+}

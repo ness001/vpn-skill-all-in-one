@@ -1,0 +1,253 @@
+{
+  "schemaVersion": 1,
+  "cores": [
+    {
+      "schemaVersion": 1,
+      "profile": "vless",
+      "project": "XTLS/Xray-core",
+      "tag": "v26.3.27",
+      "platform": "windows-amd64",
+      "asset": "Xray-windows-64.zip",
+      "assetSha256": "d004c39288ce9ada487c6f398c7c545f7d749e44bdfdd59dbc9f865afba4e1ad",
+      "binarySha256": "15c2d007954ac53ba69b80ec91242786b3c0b71d52649165b4ca1d5cc96ef8f1",
+      "size": 35613696,
+      "assetSize": 20913304,
+      "assetUrl": "https://github.com/XTLS/Xray-core/releases/download/v26.3.27/Xray-windows-64.zip",
+      "releaseMetadataUrl": "https://api.github.com/repos/XTLS/Xray-core/releases/tags/v26.3.27",
+      "license": "MPL-2.0",
+      "licensePath": "vendor/licenses/xray/LICENSE",
+      "noticePath": "vendor/licenses/xray/NOTICE.txt",
+      "sourceUrl": "https://github.com/XTLS/Xray-core/tree/v26.3.27",
+      "sourceArchiveUrl": "https://github.com/XTLS/Xray-core/archive/refs/tags/v26.3.27.tar.gz",
+      "releaseUrl": "https://github.com/XTLS/Xray-core/releases/tag/v26.3.27",
+      "archiveNotices": [
+        {
+          "archivePath": "LICENSE",
+          "sha256": "1f256ecad192880510e84ad60474eab7589218784b9a50bc7ceee34c2b91f1d5"
+        },
+        {
+          "archivePath": "LICENSE-wintun.txt",
+          "sha256": "183adac21e7d96c508c8fd34d394b7b6708bc81564ad1bad61ab66143a008cd2"
+        }
+      ],
+      "archiveEntries": [
+        {
+          "name": "xray_no_window.ps1",
+          "size": 95
+        },
+        {
+          "name": "xray.exe",
+          "size": 35613696
+        },
+        {
+          "name": "geoip.dat",
+          "size": 19768301
+        },
+        {
+          "name": "wintun.dll",
+          "size": 427552
+        },
+        {
+          "name": "xray_no_window.vbs",
+          "size": 67
+        },
+        {
+          "name": "geosite.dat",
+          "size": 10491954
+        },
+        {
+          "name": "LICENSE",
+          "size": 16725
+        },
+        {
+          "name": "LICENSE-wintun.txt",
+          "size": 5431
+        },
+        {
+          "name": "README.md",
+          "size": 10813
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "profile": "vless",
+      "project": "XTLS/Xray-core",
+      "tag": "v26.3.27",
+      "platform": "darwin-amd64",
+      "asset": "Xray-macos-64.zip",
+      "assetSha256": "f5b0471d3459eff1b82e48af0aeac186abcc3298210070afbbbd8437a4e8b203",
+      "binarySha256": "afd0eaebb77994a18f29b00c5f50a4f7fbb77da06e24352d43035f3cad3c3786",
+      "size": 35723312,
+      "assetSize": 20755142,
+      "assetUrl": "https://github.com/XTLS/Xray-core/releases/download/v26.3.27/Xray-macos-64.zip",
+      "releaseMetadataUrl": "https://api.github.com/repos/XTLS/Xray-core/releases/tags/v26.3.27",
+      "license": "MPL-2.0",
+      "licensePath": "vendor/licenses/xray/LICENSE",
+      "noticePath": "vendor/licenses/xray/NOTICE.txt",
+      "sourceUrl": "https://github.com/XTLS/Xray-core/tree/v26.3.27",
+      "sourceArchiveUrl": "https://github.com/XTLS/Xray-core/archive/refs/tags/v26.3.27.tar.gz",
+      "releaseUrl": "https://github.com/XTLS/Xray-core/releases/tag/v26.3.27",
+      "archiveNotices": [
+        {
+          "archivePath": "LICENSE",
+          "sha256": "1f256ecad192880510e84ad60474eab7589218784b9a50bc7ceee34c2b91f1d5"
+        }
+      ],
+      "archiveEntries": [
+        {
+          "name": "geoip.dat",
+          "size": 19768301
+        },
+        {
+          "name": "geosite.dat",
+          "size": 10491954
+        },
+        {
+          "name": "LICENSE",
+          "size": 16725
+        },
+        {
+          "name": "xray",
+          "size": 35723312
+        },
+        {
+          "name": "README.md",
+          "size": 10813
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "profile": "vless",
+      "project": "XTLS/Xray-core",
+      "tag": "v26.3.27",
+      "platform": "darwin-arm64",
+      "asset": "Xray-macos-arm64-v8a.zip",
+      "assetSha256": "2e93a67e8aa1936ecefb307e120830fcbd4c643ab9b1c46a2d0838d5f8409eaf",
+      "binarySha256": "5d9dd24c0aba4b6cfcc6a33a5d67f854816ee17f392bf932ec8176da46f7e404",
+      "size": 33678802,
+      "assetSize": 19674387,
+      "assetUrl": "https://github.com/XTLS/Xray-core/releases/download/v26.3.27/Xray-macos-arm64-v8a.zip",
+      "releaseMetadataUrl": "https://api.github.com/repos/XTLS/Xray-core/releases/tags/v26.3.27",
+      "license": "MPL-2.0",
+      "licensePath": "vendor/licenses/xray/LICENSE",
+      "noticePath": "vendor/licenses/xray/NOTICE.txt",
+      "sourceUrl": "https://github.com/XTLS/Xray-core/tree/v26.3.27",
+      "sourceArchiveUrl": "https://github.com/XTLS/Xray-core/archive/refs/tags/v26.3.27.tar.gz",
+      "releaseUrl": "https://github.com/XTLS/Xray-core/releases/tag/v26.3.27",
+      "archiveNotices": [
+        {
+          "archivePath": "LICENSE",
+          "sha256": "1f256ecad192880510e84ad60474eab7589218784b9a50bc7ceee34c2b91f1d5"
+        }
+      ],
+      "archiveEntries": [
+        {
+          "name": "geoip.dat",
+          "size": 19768301
+        },
+        {
+          "name": "geosite.dat",
+          "size": 10491954
+        },
+        {
+          "name": "LICENSE",
+          "size": 16725
+        },
+        {
+          "name": "xray",
+          "size": 33678802
+        },
+        {
+          "name": "README.md",
+          "size": 10813
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "profile": "hysteria2",
+      "project": "HyNetworks/hysteria",
+      "tag": "app/v2.12.3",
+      "platform": "windows-amd64",
+      "asset": "hysteria-windows-amd64.exe",
+      "assetSha256": "31c0fb6a92beac7fc43bef6e8a31ce681eac29d78feef7a5884f2c797bfdba24",
+      "binarySha256": "31c0fb6a92beac7fc43bef6e8a31ce681eac29d78feef7a5884f2c797bfdba24",
+      "size": 23575040,
+      "assetSize": 23575040,
+      "assetUrl": "https://github.com/HyNetworks/hysteria/releases/download/app/v2.12.3/hysteria-windows-amd64.exe",
+      "releaseMetadataUrl": "https://api.github.com/repos/HyNetworks/hysteria/releases/tags/app%2Fv2.12.3",
+      "license": "MIT",
+      "licensePath": "vendor/licenses/hysteria/LICENSE",
+      "noticePath": "vendor/licenses/hysteria/NOTICE.txt",
+      "sourceUrl": "https://github.com/HyNetworks/hysteria/tree/app/v2.12.3",
+      "sourceArchiveUrl": "https://github.com/HyNetworks/hysteria/archive/refs/tags/app/v2.12.3.tar.gz",
+      "releaseUrl": "https://github.com/HyNetworks/hysteria/releases/tag/app/v2.12.3",
+      "archiveNotices": [],
+      "archiveEntries": []
+    },
+    {
+      "schemaVersion": 1,
+      "profile": "hysteria2",
+      "project": "HyNetworks/hysteria",
+      "tag": "app/v2.12.3",
+      "platform": "darwin-amd64",
+      "asset": "hysteria-darwin-amd64",
+      "assetSha256": "cdbc8144cbdb19a535234a8ccb6afceaab3ddf03d0fb60c6e198e056d4f689a7",
+      "binarySha256": "cdbc8144cbdb19a535234a8ccb6afceaab3ddf03d0fb60c6e198e056d4f689a7",
+      "size": 23128224,
+      "assetSize": 23128224,
+      "assetUrl": "https://github.com/HyNetworks/hysteria/releases/download/app/v2.12.3/hysteria-darwin-amd64",
+      "releaseMetadataUrl": "https://api.github.com/repos/HyNetworks/hysteria/releases/tags/app%2Fv2.12.3",
+      "license": "MIT",
+      "licensePath": "vendor/licenses/hysteria/LICENSE",
+      "noticePath": "vendor/licenses/hysteria/NOTICE.txt",
+      "sourceUrl": "https://github.com/HyNetworks/hysteria/tree/app/v2.12.3",
+      "sourceArchiveUrl": "https://github.com/HyNetworks/hysteria/archive/refs/tags/app/v2.12.3.tar.gz",
+      "releaseUrl": "https://github.com/HyNetworks/hysteria/releases/tag/app/v2.12.3",
+      "archiveNotices": [],
+      "archiveEntries": []
+    },
+    {
+      "schemaVersion": 1,
+      "profile": "hysteria2",
+      "project": "HyNetworks/hysteria",
+      "tag": "app/v2.12.3",
+      "platform": "darwin-arm64",
+      "asset": "hysteria-darwin-arm64",
+      "assetSha256": "9065dc5dc9cd75f7ba881f481e8cb77e7eae17139460ca09d399682ca6fad443",
+      "binarySha256": "9065dc5dc9cd75f7ba881f481e8cb77e7eae17139460ca09d399682ca6fad443",
+      "size": 21504418,
+      "assetSize": 21504418,
+      "assetUrl": "https://github.com/HyNetworks/hysteria/releases/download/app/v2.12.3/hysteria-darwin-arm64",
+      "releaseMetadataUrl": "https://api.github.com/repos/HyNetworks/hysteria/releases/tags/app%2Fv2.12.3",
+      "license": "MIT",
+      "licensePath": "vendor/licenses/hysteria/LICENSE",
+      "noticePath": "vendor/licenses/hysteria/NOTICE.txt",
+      "sourceUrl": "https://github.com/HyNetworks/hysteria/tree/app/v2.12.3",
+      "sourceArchiveUrl": "https://github.com/HyNetworks/hysteria/archive/refs/tags/app/v2.12.3.tar.gz",
+      "releaseUrl": "https://github.com/HyNetworks/hysteria/releases/tag/app/v2.12.3",
+      "archiveNotices": [],
+      "archiveEntries": []
+    }
+  ],
+  "licenses": [
+    {
+      "path": "vendor/licenses/xray/LICENSE",
+      "sha256": "1f256ecad192880510e84ad60474eab7589218784b9a50bc7ceee34c2b91f1d5",
+      "license": "MPL-2.0",
+      "sourceUrl": "https://api.github.com/repos/XTLS/Xray-core/contents/LICENSE?ref=v26.3.27",
+      "sourceBlobSha1": "a612ad9813b006ce81d1ee438dd784da99a54007",
+      "noticePath": "vendor/licenses/xray/NOTICE.txt"
+    },
+    {
+      "path": "vendor/licenses/hysteria/LICENSE",
+      "sha256": "b279cfdac4db4b077f0660b5d8156d50a8bc7bd410036dc356499af43c4e84f5",
+      "license": "MIT",
+      "sourceUrl": "https://api.github.com/repos/HyNetworks/hysteria/contents/LICENSE.md?ref=app%2Fv2.12.3",
+      "sourceBlobSha1": "208e8f29bde3149b86884ed2faa00f819a0253ef",
+      "noticePath": "vendor/licenses/hysteria/NOTICE.txt"
+    }
+  ]
+}

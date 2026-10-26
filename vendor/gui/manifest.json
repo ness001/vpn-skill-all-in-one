@@ -1,0 +1,125 @@
+{
+  "schemaVersion": 1,
+  "apps": [
+    {
+      "id": "v2rayn",
+      "name": "v2rayN",
+      "version": "7.24.9",
+      "license": "GPL-3.0 and bundled component licenses",
+      "sourceUrl": "https://github.com/2dust/v2rayN/tree/7.24.9",
+      "packages": [
+        {
+          "platform": "windows-amd64",
+          "filename": "v2rayN-windows-64.zip",
+          "sha256": "84a3b7d249db0c87951566f3fa4af520d97115469a404e1d3d506096f6186685",
+          "size": 156320091,
+          "sourceUrl": "https://github.com/2dust/v2rayN/releases/download/7.24.9/v2rayN-windows-64.zip",
+          "requirements": [
+            "Windows 10/11 x64",
+            "Extract the complete archive; self-contained .NET runtime and cores included."
+          ]
+        },
+        {
+          "platform": "darwin-amd64",
+          "filename": "v2rayN-macos-64.dmg",
+          "sha256": "71d0dc8fb1d04990ba6fe25a8faaf4023ea3999f99a9c818ff10d9db5dee3cc1",
+          "size": 130939177,
+          "sourceUrl": "https://github.com/2dust/v2rayN/releases/download/7.24.9/v2rayN-macos-64.dmg",
+          "requirements": [
+            "macOS 13.6+ Intel",
+            "Observe normal macOS application security requirements; no policy bypass."
+          ]
+        },
+        {
+          "platform": "darwin-arm64",
+          "filename": "v2rayN-macos-arm64.dmg",
+          "sha256": "60b7812c460f985300dadda69f2ba2ecd74c919f8c96d1e97ab07941e6e4d965",
+          "size": 124363016,
+          "sourceUrl": "https://github.com/2dust/v2rayN/releases/download/7.24.9/v2rayN-macos-arm64.dmg",
+          "requirements": [
+            "macOS 13.6+ Apple Silicon",
+            "Observe normal macOS application security requirements; no policy bypass."
+          ]
+        },
+        {
+          "platform": "linux-amd64",
+          "filename": "v2rayN-linux-64.zip",
+          "sha256": "8847f77fc1f7e8f9afed0790707326ec6685f7c3f10b63dd7a43772f4bfe5fef",
+          "size": 134198597,
+          "sourceUrl": "https://github.com/2dust/v2rayN/releases/download/7.24.9/v2rayN-linux-64.zip",
+          "requirements": [
+            "Linux x64 with compatible modern desktop libraries; built for Ubuntu 24.04",
+            "Self-contained .NET does not bundle all native graphics/font libraries."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "clash-verge-rev",
+      "name": "Clash Verge Rev",
+      "version": "v2.5.2",
+      "license": "GPL-3.0 and bundled component licenses; separate Microsoft WebView2 terms",
+      "sourceUrl": "https://github.com/clash-verge-rev/clash-verge-rev/tree/v2.5.2",
+      "packages": [
+        {
+          "platform": "windows-amd64",
+          "filename": "Clash.Verge_2.5.2_x64-setup.exe",
+          "sha256": "ba42f00b1082e352352080170fe86ae411bcc854cb13f1b8bebc9025e8a7cbf4",
+          "size": 46964366,
+          "sourceUrl": "https://github.com/clash-verge-rev/clash-verge-rev/releases/download/v2.5.2/Clash.Verge_2.5.2_x64-setup.exe",
+          "companions": [
+            {
+              "platform": "windows-amd64",
+              "filename": "MicrosoftEdgeWebView2RuntimeInstallerX64.exe",
+              "sha256": "ad9b350625e132481bc0953eee9e032810134df9fedbd7be364c3f4e0e4dbd64",
+              "size": 213053648,
+              "sourceUrl": "https://msedge.sf.dl.delivery.mp.microsoft.com/filestreamingservice/files/913236b0-52e1-4dde-943c-2cfdbe153d31/MicrosoftEdgeWebView2RuntimeInstallerX64.exe",
+              "requirements": [
+                "Microsoft WebView2 Evergreen Standalone x64 153.0.4234.48. Install first if no runtime is installed."
+              ],
+              "installOrder": 1,
+              "description": "Microsoft WebView2 offline runtime: install first if missing."
+            }
+          ],
+          "requirements": [
+            "Windows x64",
+            "A direct official Microsoft WebView2 installer link is provided. Download/install it first if the runtime is missing, then install Clash Verge Rev."
+          ]
+        },
+        {
+          "platform": "darwin-amd64",
+          "filename": "Clash.Verge_2.5.2_x64.dmg",
+          "sha256": "c9fcec27d3e4b4fffe31f314369aaa4017d80c1293c8b1cb65d85de223e9cb6c",
+          "size": 65843472,
+          "sourceUrl": "https://github.com/clash-verge-rev/clash-verge-rev/releases/download/v2.5.2/Clash.Verge_2.5.2_x64.dmg",
+          "requirements": [
+            "macOS 12+ Intel",
+            "Observe normal macOS application security requirements."
+          ]
+        },
+        {
+          "platform": "darwin-arm64",
+          "filename": "Clash.Verge_2.5.2_aarch64.dmg",
+          "sha256": "94d29405980b5d1d3419dd1de485db3a234d35cef058f79dcce595e01b697219",
+          "size": 60935420,
+          "sourceUrl": "https://github.com/clash-verge-rev/clash-verge-rev/releases/download/v2.5.2/Clash.Verge_2.5.2_aarch64.dmg",
+          "requirements": [
+            "macOS 12+ Apple Silicon",
+            "Observe normal macOS application security requirements."
+          ]
+        },
+        {
+          "platform": "linux-amd64",
+          "filename": "Clash.Verge_2.5.2_amd64.deb",
+          "sha256": "035c83ed14b16df1dd397e5d710b34bedd5d27beb6678549ceaeeadf9bc167ed",
+          "size": 83045404,
+          "sourceUrl": "https://github.com/clash-verge-rev/clash-verge-rev/releases/download/v2.5.2/Clash.Verge_2.5.2_amd64.deb",
+          "requirements": [
+            "Compatible Debian/Ubuntu x64 desktop",
+            "Requires installed WebKitGTK 4.1, GTK3, OpenSSL and Ayatana AppIndicator libraries; distribution dependencies are not bundled."
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "name": "vpn-skill",
+  "plugins": [
+    {
+      "name": "vpn-skill",
+      "source": "./",
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}

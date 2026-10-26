@@ -1,0 +1,88 @@
+Microsoft Edge WebView2 Evergreen Runtime — separate third-party terms
+For the Windows x64 Clash Verge Rev v2.5.2 offline companion package.
+Checked 2026-09-19.
+
+PACKAGE AND OFFLINE INSTALLATION
+The selected application is the unchanged regular upstream installer:
+Clash.Verge_2.5.2_x64-setup.exe
+A separate official Microsoft link provides the unchanged Evergreen Standalone
+Runtime installer, version 153.0.4234.48, acquired directly from Microsoft:
+MicrosoftEdgeWebView2RuntimeInstallerX64.exe
+The companion link is provided only as the runtime prerequisite for this application,
+not as an independent stand-alone software offering. If WebView2 is missing,
+install the Microsoft-downloaded companion FIRST, then install Clash Verge. The full
+standalone runtime installer supports offline installation; the application's
+small embedded bootstrapper alone does not replace it on a disconnected system.
+A sufficiently current preinstalled WebView2 runtime can be reused.
+
+Microsoft and its suppliers retain their rights. WebView2 is NOT relicensed
+under the GUI's GNU GPL. Neither installer is modified, and this repository is
+not affiliated with or endorsed by Microsoft. Preserve the runtime files,
+Microsoft/supplier notices, applicable terms and third-party notices.
+
+OFFLINE LICENSE COPIES
+- LICENSE.WebView2.html.txt preserves the complete evergreenHtml value returned
+  by Microsoft's official license endpoint, encoded as UTF-8 without edits.
+- LICENSE.WebView2.txt contains the same full license text, with HTML markup
+  removed and line whitespace normalized for local reading; no clauses omitted.
+The upstream endpoint contains replacement characters in some punctuation and
+French text; the verbatim HTML-value copy retains them rather than inventing
+corrected license text. Both files were obtained on 2026-09-19.
+
+Read the full applicable Microsoft terms before installing or using the runtime.
+This notice does not accept an agreement on anyone's behalf or assert that any
+recipient has already accepted it. The supplied terms and applicable agreement,
+not this summary or the repository's license, control runtime use/distribution.
+
+OFFICIAL TERMS AND SOURCE REFERENCES
+Microsoft Software License Terms, Microsoft Edge WebView2 Runtime (Evergreen):
+https://developer.microsoft.com/microsoft-edge/api/eula/webview2
+Official product page:
+https://developer.microsoft.com/en-us/microsoft-edge/webview2/
+Official offline distribution guidance:
+https://learn.microsoft.com/en-us/microsoft-edge/webview2/concepts/distribution
+Microsoft third-party open-source source access:
+https://thirdpartysource.microsoft.com
+
+DISTRIBUTION CONDITIONS (SUMMARY; THE FULL TERMS CONTROL)
+Section 2(a) permits distribution of object code with applications and permits
+application distributors to redistribute included distributable code.
+Section 2(b) requires significant primary application functionality, protective
+end-user/distributor terms and required notices, code acquisition directly from
+Microsoft, and the stated distribution indemnity. Sections 2(c) and 4 restrict
+false endorsement, specified licensing/distribution uses and stand-alone sharing.
+The runtime bytes are not included here; only the official prerequisite link is provided.
+Redistribution permission is conditional, not a GPL grant. Anyone further
+redistributing must retain and satisfy the applicable Microsoft terms; these
+notices are not a blanket legal/compliance certification.
+
+REQUIRED NOTICE TO END USERS
+This application package includes Microsoft Edge WebView2 and Microsoft Defender
+SmartScreen. SmartScreen is enabled by default in the runtime. Unless disabled
+by the application, it collects and sends end-user information to Microsoft as
+described in Microsoft's Privacy Statement and Microsoft Edge Privacy Whitepaper:
+https://aka.ms/privacy
+https://learn.microsoft.com/en-us/microsoft-edge/privacy-whitepaper#smartscreen
+WebView2 may also collect usage information as described in its terms and those
+privacy references. This package does not claim to disable those features.
+The Evergreen runtime may periodically check for, download and install updates
+when connectivity is available. Offline installation does not mean the software
+never accesses the network. Windows 7/8.1 are not supported by this app/runtime
+selection; the complete license's historical update disclosure is retained.
+
+MAINTAINER PROVENANCE
+Pinned direct-Microsoft runtime URL:
+https://msedge.sf.dl.delivery.mp.microsoft.com/filestreamingservice/files/913236b0-52e1-4dde-943c-2cfdbe153d31/MicrosoftEdgeWebView2RuntimeInstallerX64.exe
+Expected size: 213053648 bytes.
+Published SHA-256:
+ad9b350625e132481bc0953eee9e032810134df9fedbd7be364c3f4e0e4dbd64
+Published checksum reference:
+https://github.com/microsoft/winget-pkgs/blob/master/manifests/m/Microsoft/EdgeWebView2Runtime/153.0.4234.48/Microsoft.EdgeWebView2Runtime.installer.yaml
+Maintainer acquisition verification on 2026-09-19 recorded a direct Microsoft
+download, matching published SHA-256 and size, and Authenticode status Valid
+with Microsoft Corporation as signer. The regular Clash installer's published
+SHA-256 also matched. Neither installer was executed. ../../manifest.json records
+the selected package/companion URLs, sizes, hashes (package parts are no longer included).
+Explicit downloads must continue checking those hashes. On any future replacement,
+verify the new direct source, published checksum and Microsoft signature again;
+this verification record applies only to the pinned bytes, not future versions.

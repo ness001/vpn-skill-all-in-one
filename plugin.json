@@ -1,0 +1,9 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "vpn-skill",
+  "version": "0.1.0",
+  "description": "Set up, use, diagnose and measure your own VLESS or Hysteria2 VPN with six agent skills.",
+  "author": { "name": "ness001" },
+  "homepage": "https://github.com/ness001/vpn-skill-all-in-one",
+  "repository": "https://github.com/ness001/vpn-skill-all-in-one"
+}

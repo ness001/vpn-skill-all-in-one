@@ -1,0 +1,9 @@
+# Desktop GUI release links
+
+This directory owns pinned official package URLs, versions, platform requirements, SHA-256/size metadata and license/source notices. Third-party installers, split package parts and mirrored source archives are **not included** in Git. See [device setup](../../docs/DEVICES.md#desktop-gui-setup) for installation/imports.
+
+[manifest.json](manifest.json) records v2rayN, Clash Verge Rev and a Microsoft-direct WebView2 companion. `clients/gui.py` shows official links without downloading or exporting profiles. Explicit `--download` fetches the selected package and companion using vetted HTTPS hosts, verifies complete size/hash, and publishes complete files atomically without replacing existing files. Output defaults to `~/Downloads/VPN-GUIs`, outside Git. It never executes installers, elevates privileges or changes system routing/proxy settings. A compatible existing cached package is reused after verification; a modified package fails closed.
+
+The Windows WebView2 runtime remains a direct official Microsoft download under Microsoft's separate terms, not a redistributed repository artifact. License/notice references are retained under `licenses/`. [sources/manifest.json](sources/manifest.json) retains pinned upstream component source URLs, commits and previously recorded hashes; source archives are not mirrored. Keeping references does not establish complete upstream compliance for a new package version.
+
+Maintainers use `admin/tools/gui_refresh.py SELECTION --online --output NEW.json` for release-link candidates, and `admin/tools/gui_source_bundle.py --output NEW.json` for source-link candidates. These tools do not download release packages or mirror source archives. Preserve original license bytes and review source correspondence when updating pins. No working VPN credentials belong here.

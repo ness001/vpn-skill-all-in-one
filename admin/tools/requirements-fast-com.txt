@@ -1,0 +1,2 @@
+# Optional browser automation only; use locally installed Chrome or Edge.
+playwright==1.63.0

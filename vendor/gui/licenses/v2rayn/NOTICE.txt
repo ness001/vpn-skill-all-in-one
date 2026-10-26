@@ -1,0 +1,51 @@
+v2rayN 7.24.9 - redistribution notices and source access
+
+This repository links official upstream release assets; no installer, split
+package parts or source mirrors are distributed here. Original license and
+historical verification references are retained for the pinned packages.
+No upstream endorsement or replacement license is implied.
+
+v2rayN: Copyright (c) 2017-2026 2dust.
+Attribution is derived from the exact release's v2rayN/Directory.Build.props:
+https://github.com/2dust/v2rayN/blob/521230c40d5c180bc0727cf4003907edfae5a3e0/v2rayN/Directory.Build.props
+The upstream metadata declares GPL-3.0. The complete upstream license is in
+v2rayN-GPL-3.0.txt. The program is provided without warranty as stated there.
+
+Included third-party components retain their own copyrights and terms. Read the
+verbatim license and notice files in this directory. In particular:
+- sing-box 1.13.19: GPL version 3 or later, plus the upstream naming/association
+  restriction reproduced in sing-box-LICENSE.txt. The complete GPL version 3
+  text is also supplied in v2rayN-GPL-3.0.txt.
+- mihomo 1.19.29: the complete GPL version 3 license from that exact tag is in
+  mihomo-GPL-3.0.txt. Do not substitute the current default branch's license.
+- Xray 26.7.28 as packaged by autorepobot/Xray: Mozilla Public License 2.0,
+  reproduced in Xray-MPL-2.0.txt. Its source is the pinned fork, not an assumption
+  that the binary is identical to the XTLS release.
+- .NET runtime and WPF 10.0.11: MIT licenses and the full upstream third-party
+  notices are supplied separately.
+- Wintun 0.14.1: the signed binary has the accompanying Wintun prebuilt-binaries
+  license, not merely the source project's GPL license. It remains unmodified
+  and is distributed alongside software using the permitted Wintun API.
+- Avalonia, GlobalHotKeys and SkiaSharp notices are supplied at the source
+  versions identified in source-availability.json.
+
+Source access: ../../sources/manifest.json records exact source commits,
+public HTTPS archive links and previously recorded hashes. Source archives
+are not included locally. source-availability.json retains source trees,
+build instructions and license provenance. The GUI source archive omits its
+GlobalHotKeys git submodule; a separate pinned source URL is listed.
+Recipients redistributing downloaded packages remain responsible for complete
+Corresponding Source access under applicable terms. These links are not an
+indefinite written source offer or a complete compliance certification.
+
+Historical verification scope (before release bytes were removed): the former locally stored Windows archive and parts were SHA-256 verified. Read-only binary inspection confirms the sing-box
+and mihomo commits and .NET 10.0.11 runtime references. The inspected Xray executable
+is byte-identical to the authenticated-by-published-digest autorepobot release
+member. The inspected Wintun DLL is byte-identical to the official 0.14.1 signed
+DLL. No executable was launched for this inventory.
+
+This is a scoped notice/source inventory, not a complete software bill of
+materials or a completed audit of every embedded native library, Go/NuGet
+transitive dependency, rules database, data attribution, or non-Windows package.
+Known remaining checks and the scope of every version assertion are recorded
+in source-availability.json. Do not represent those checks as completed.

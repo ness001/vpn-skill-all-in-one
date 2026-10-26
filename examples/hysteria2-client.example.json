@@ -1,0 +1,7 @@
+{
+  "server": "hy2.example.invalid:443",
+  "auth": "REPLACE_WITH_DEVICE_USER:REPLACE_WITH_PRIVATE_PASSWORD",
+  "tls": { "sni": "hy2.example.invalid", "insecure": false },
+  "socks5": { "listen": "127.0.0.1:10808" },
+  "http": { "listen": "127.0.0.1:10809" }
+}
