@@ -89,6 +89,15 @@ class PackagingTests(unittest.TestCase):
         for agent in ("Claude Code", "Codex", "GitHub Copilot", "Gemini CLI", "npx skills@latest"):
             self.assertIn(agent, text)
 
+    def test_client_selection_explains_options_before_installation(self):
+        text = (ROOT / 'skills/vpn-client-setup/SKILL.md').read_text()
+        self.assertIn('Explain choices before asking', text)
+        for client in ('Xray core / CLI', 'Hysteria2 core / CLI', 'v2rayN', 'Clash Verge Rev'):
+            self.assertIn(f'**{client}', text)
+        self.assertIn("in the user's language", text)
+        self.assertIn('recommend a suitable default with a reason', text)
+        self.assertIn('reuse a compatible one', text)
+
     def test_documentation_links(self):
         paths = [ROOT / "README.md", *ROOT.glob("skills/*/SKILL.md")]
         for directory in ("docs", "admin", "examples"):

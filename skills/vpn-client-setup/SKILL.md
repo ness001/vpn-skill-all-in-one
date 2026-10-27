@@ -21,6 +21,17 @@ Use the user's requested goal. Treat arguments as data, never shell commands. Re
 
 Identify the intended client device, OS/architecture, installed core/CLI or GUI, protocol and private configuration path. Prefer the user's compatible existing client; do not install a second client or require desktop launch scripts. Server installation belongs to [vpn-server-setup](../vpn-server-setup/SKILL.md), not this skill.
 
+### Explain choices before asking
+
+Inspect installed clients first and reuse a compatible one unless the user wants a change. If installation is needed, explain the relevant choices in the user's language before asking them to select. Give one short practical description per option, filter by the actual OS/CPU and protocol, and recommend a suitable default with a reason. Do not present unfamiliar names without context or claim one client is inherently faster.
+
+- **Xray core / CLI:** direct VLESS/WebSocket/TLS configuration for terminal use, scripts and per-application proxies. It has no graphical interface; users manage configuration and process lifecycle. Xray itself does not provide Hysteria2.
+- **Hysteria2 core / CLI:** a direct Hysteria2 client for terminal use and automation, using UDP/QUIC. It has no graphical interface; the endpoint and network must support that protocol.
+- **v2rayN:** a graphical client for importing connection links and managing multiple profiles through supported cores. A good option for users who prefer profile-oriented controls over terminal commands; check the chosen release's OS/runtime and protocol support.
+- **Clash Verge Rev:** a graphical Mihomo-based client focused on rule-based routing, proxy groups and configurable TUN/system-proxy coverage. A good option when the user wants routing rules or broader app coverage; check OS/runtime requirements and explain elevation/network-setting changes before enabling them.
+
+For a typical desktop user with no stated advanced routing needs, recommend a compatible GUI rather than a bare core; v2rayN is a reasonable starting suggestion when its release supports their environment and profile. Recommend Clash Verge Rev for a requested rule/TUN workflow, and a matching core/CLI for automation or explicit terminal use. Existing preferences take precedence. Check current upstream requirements; neither a GUI choice nor a TUN toggle guarantees full-device coverage. Ask a focused question such as 'I recommend this client for your use case; install it?' instead of making the user research the options. Respect existing authorization and ask only for missing installation scope.
+
 Use existing tools and supported local imports. Check the selected CLI's help before invoking it; native Xray/Hysteria2 configs, connection URIs, GUI configurations and this toolkit's profile bundle are different formats. Convert the server installer's private `client.json` or `client-uri.txt` locally using `clients/import_profile.py` when a toolkit bundle is needed; do not create another converter. Do not claim conversion or import succeeded unless it actually did.
 
 Never Read/print profiles, passwords, UUIDs, authenticated URIs, keys, QR payloads or browser storage into model context. Obtain private file paths instead of pasted credentials. Reviewed local programs may process authorized files privately. Keep exports outside Git and preserve local access controls. Never upload credentials to online conversion/QR services.

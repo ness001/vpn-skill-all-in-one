@@ -16,6 +16,15 @@ Choose/install a compatible client, import an assigned profile and test the actu
 
 Official compatibility references include the [Hysteria client directory](https://v2.hysteria.network/docs/getting-started/3rd-party-apps/) and app release notes. Features, prices, minimum OS and regional availability vary; mainland China App Store availability is not guaranteed. No purchase or account-region change is required by this guide. A compatibility listing is not a device acceptance test.
 
+### How to choose a desktop client
+
+- **Xray core / CLI:** direct VLESS/WebSocket/TLS configuration for scripts, terminal use and application proxies; no graphical interface.
+- **Hysteria2 core / CLI:** direct Hysteria2 connections for terminal use or automation; requires a compatible UDP/QUIC path.
+- **v2rayN:** a graphical way to import links and manage connection profiles through supported cores. Start here when you prefer a profile-oriented desktop interface and the current release supports your system/protocol.
+- **Clash Verge Rev:** a graphical Mihomo client for routing rules, proxy groups and configurable TUN/system-proxy coverage. Choose it when those routing controls match your needs.
+
+Reuse an installed compatible client first. Otherwise, check the release's OS/CPU and runtime requirements, then choose by workflow rather than assuming a different interface will improve speed. The client setup skill explains the relevant options and recommends one before asking for installation.
+
 ## Desktop GUI setup
 
 Run `python3 clients/gui.py` (or choose **Desktop GUI installers** in a private launcher) to show official [v2rayN releases](https://github.com/2dust/v2rayN/releases) and [Clash Verge Rev releases](https://github.com/clash-verge-rev/clash-verge-rev/releases). The helper does not download packages or read credentials by default.
